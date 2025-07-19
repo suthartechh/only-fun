@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./bus_booking_icon.svg" type="image/x-icon">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+</head>
+
+<body>
+
+    <main class="d-flex flex-column  w-100  gap-15px">
+        <header class="d-flex px-3 w-100 justify-content-center position-relative  align-items-center py-3 mb-2"
+            style="background-color: #f5f3ed; border-radius: 7px;">
+
+            <div style="width: 109px; top: 50%; transform: translateY(-50%); left: 30px; "
+                class="imgContainer position-absolute">
+                <img src="https://d3k2a3bjun47s4.cloudfront.net/haryana_travel_logo.jpeg" class="h-100 w-100" alt="">
+            </div>
+
+            <div class="d-flex align-items-center gap-2 flex-column text-container"
+                style="    width: calc(100% - 268px); margin: 0 auto">
+                <p class="fs-24 fw-600 mb-0 heading text-center">Department of State Transport (Haryana Roadways)</p>
+                <p class="fs-24 fw-600 mb-0 heading text-center"> सुगम और सुरक्षित यात्रा - CET-2025</p>
+                <p class="fs-18 fw-400 mb-0 subheading">Travel Booking for CET- 2025</p>
+            </div>
+        </header>
+
+        <section class="w-100 border py-3 position-relative">
+            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center rounded-3 overflow-hidden"
+                style="z-index: -1; opacity: 0.9; filter: brightness(0.4);">
+                <img src="https://d3k2a3bjun47s4.cloudfront.net/Final.png" class="h-100 w-100" alt="">
+            </div>
+            <form class=" d-flex gap-10px px-3 py-2  flex-wrap"
+                style="row-gap: 25px; margin: 0 auto; border-radius: 8px; backdrop-filter: blur(8px);"
+                onsubmit="handleSubmit(event)">
+                <div class="inputContainer d-flex gap-10px align-items-center">
+                    <div class="inputWrapper grow-1 d-flex  gap-1">
+                        <label for="name" class="fs-15 color-medium"> Full Name / पूरा नाम<sup class="text-danger"><i
+                                    class="fa-solid fa-star-of-life" style="font-size: 8px; "></i></sup> : </label>
+                        <input class="w-100  py-2 rounded px-2 border-medium fs-15" minlength="3" maxlength="50"
+                            type="text" name="name" required id="name" placeholder="Enter Full Name">
+                    </div>
+                </div>
+
+                <div class="inputContainer d-flex gap-10px align-items-center">
+                    <div class="inputWrapper grow-1 d-flex  gap-1">
+                        <label for="mobile" class="fs-15 color-medium"> Mobile Number / मोबाइल नंबर<sup class="text-danger"><i
+                                    class="fa-solid fa-star-of-life" style="font-size: 8px; "></i></sup> :
+                        </label>
+                        <input class="w-100 py-2 rounded px-2 border-medium fs-15" min="1000000000" max="9999999999"
+                            required type="number" name="mobile" id="mobile" placeholder="Enter Mobile No">
+                    </div>
+
+                </div>
+
+                <div class="inputContainer d-flex gap-10px align-items-center">
+                    <div class="inputWrapper w-100 d-flex  gap-1">
+                        <label for="roll-no" class="fs-15 color-medium"> Roll No / रोल नं<sup class="text-danger"><i
+                                    class="fa-solid fa-star-of-life" style="font-size: 8px; "></i></sup> : </label>
+                        <input class="w-100  py-2 rounded px-2 border-medium fs-15" min="1" max="9999999999" required
+                            type="number" name="roll-no" id="roll-no" placeholder="Enter Roll No">
+                    </div>
+
+                </div>
+                <div class="inputContainer d-flex gap-10px ">
+
+                    <div class="inputWrapper w-100 d-flex  gap-1 align-items-start">
+                        <label for="gender" class="fs-15 color-medium"> Gender / लिंग<sup class="text-danger"><i
+                                    class="fa-solid fa-star-of-life" style="font-size: 8px; "></i></sup> : </label>
+
+                        <div class="w-100 d-flex flex-column gap-25px">
+
+                            <select name="gender" id="gender" required
+                                class="w-100 py-2  dropdownContainer rounded px-2 border-medium fs-15 cursor-pointer">
+                                <option value="" selected>Select gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="transgender">Transgender</option>
+                            </select>
+
+                            <div class="inputWrapper grow-1 d-flex  gap-1 guardianSelectContainer d-none">
+                                <div class="w-100 d-flex gap-10px radioSelect">
+                                    <label for="without-guardian"
+                                        class="w-100 d-flex gap-2 align-items-center cursor-pointer justify-content-center rounded py-2 px-3 bg-light-gray">
+                                        <input class="border-medium fs-15 d-none" type="radio" name="guardian-details"
+                                            id="without-guardian" checked>
+                                        <i class="fa-solid fa-circle-check"></i>
+
+                                        <span class="fs-15 ">Travelling Without Guardian</span>
+                                    </label>
+                                    <label for="with-guardian"
+                                        class="w-100 d-flex gap-2 align-items-center cursor-pointer justify-content-center rounded py-2 px-3 bg-light-gray">
+                                        <input class="border-medium fs-15 d-none" type="radio" name="guardian-details"
+                                            id="with-guardian">
+                                        <i class="fa-solid fa-circle-check"></i>
+                                        <span class="fs-15 ">Travelling With Guardian</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+                <div class="inputContainer d-flex gap-10px align-items-center fairContainr">
+                    <div class="inputWrapper grow-1 d-flex  gap-1">
+                        <label for="fare-choice" class="fs-15 color-medium">Free Bus Facility / निःशुल्क बस सुविधा : </label>
+                        <div class="w-100 d-flex gap-10px radioSelect">
+                            <label for="free-choice" id="free-choice-btn"
+                                class="w-100 d-flex gap-2 align-items-center cursor-pointer justify-content-center rounded py-2 px-3 bg-light-gray">
+                                <input class="border-medium fs-15 d-none" type="radio" name="fare-choice"
+                                    id="free-choice" checked>
+                                <i class="fa-solid fa-circle-check"></i>
+
+                                <span class="fs-15 ">I Want Bus Service</span>
+                            </label>
+                            <label for="paid-choice"
+                                class="w-100 d-flex gap-2 align-items-center cursor-pointer justify-content-center rounded py-2 px-3 bg-light-gray">
+                                <input class="border-medium fs-15 d-none" type="radio" name="fare-choice"
+                                    id="paid-choice">
+                                <i class="fa-solid fa-circle-check"></i>
+
+                                <span class="fs-15 ">I Don't Want Bus Service</span>
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- this is free fare choice -->
+
+
+                <div class="inputContainer d-flex gap-10px align-items-center ">
+                    <div class="inputWrapper w-100 d-flex  gap-1">
+                        <label for="starting-point" class="fs-15 color-medium">Starting Point / प्रस्थान बिंदू<sup class="text-danger"><i
+                                    class="fa-solid fa-star-of-life" style="font-size: 8px; "></i></sup> : </label>
+                        <select name="starting-point" id="starting-point" required
+                            class="w-100 py-2  dropdownContainer rounded px-2 border-medium fs-15 cursor-pointer">
+                            <option value="" selected>Select Starting</option>
+                            <option value="Ambala">Ambala</option>
+                            <option value="Bhiwani">Bhiwani</option>
+                            <option value="Charkhi Dadri">Charkhi Dadri</option>
+                            <option value="Faridabad">Faridabad</option>
+                            <option value="Fatehabad">Fatehabad</option>
+                            <option value="Gurugram">Gurugram</option>
+                            <option value="Hisar">Hisar</option>
+                            <option value="Jhajjar">Jhajjar</option>
+                            <option value="Jind">Jind</option>
+                            <option value="Kaithal">Kaithal</option>
+                            <option value="Karnal">Karnal</option>
+                            <option value="Kurukshetra">Kurukshetra</option>
+                            <option value="Narnaul/Mahendragarh">Narnaul/Mahendragarh</option>
+                            <option value="Nuh">Nuh</option>
+                            <option value="Palwal">Palwal</option>
+                            <option value="Panchkula">Panchkula</option>
+                            <option value="Panipat">Panipat</option>
+                            <option value="Rewari">Rewari</option>
+                            <option value="Rohtak">Rohtak</option>
+                            <option value="Sirsa">Sirsa</option>
+                            <option value="Sonipat">Sonipat</option>
+                            <option value="Yamunanagar">Yamunanagar</option>
+                            <option value="Delhi">Delhi</option>
+                            <option value="CHANDIGARH">CHANDIGARH</option>
+                            <option value="OTHERS">OTHERS</option>
+
+                        </select>
+                    </div>
+                </div>
+
+                <div class="inputContainer d-flex gap-10px align-items-center ">
+                    <div class="inputWrapper w-100 d-flex  gap-1">
+                        <label for="ending-point" class="fs-15 color-medium">Ending Point / समाप्ति बिंदु<sup class="text-danger"><i
+                                    class="fa-solid fa-star-of-life" style="font-size: 8px; "></i></sup> :
+                        </label>
+                        <select name="ending-point" id="ending-point" required
+                            class="w-100 py-2  dropdownContainer rounded px-2 border-medium fs-15 cursor-pointer">
+                            <option value="" selected>Select Ending</option>
+                            <option value="Ambala">Ambala</option>
+                            <option value="Bhiwani">Bhiwani</option>
+                            <option value="Charkhi Dadri">Charkhi Dadri</option>
+                            <option value="Faridabad">Faridabad</option>
+                            <option value="Fatehabad">Fatehabad</option>
+                            <option value="Gurugram">Gurugram</option>
+                            <option value="Hisar">Hisar</option>
+                            <option value="Jhajjar">Jhajjar</option>
+                            <option value="Jind">Jind</option>
+                            <option value="Kaithal">Kaithal</option>
+                            <option value="Karnal">Karnal</option>
+                            <option value="Kurukshetra">Kurukshetra</option>
+                            <option value="Narnaul/Mahendragarh">Narnaul/Mahendragarh</option>
+                            <option value="Nuh">Nuh</option>
+                            <option value="Palwal">Palwal</option>
+                            <option value="Panchkula">Panchkula</option>
+                            <option value="Panipat">Panipat</option>
+                            <option value="Rewari">Rewari</option>
+                            <option value="Rohtak">Rohtak</option>
+                            <option value="Sirsa">Sirsa</option>
+                            <option value="Sonipat">Sonipat</option>
+                            <option value="Yamunanagar">Yamunanagar</option>
+                            <option value="Delhi">Delhi</option>
+                            <option value="CHANDIGARH">CHANDIGARH</option>
+                            <option value="OTHERS">OTHERS</option>
+
+                        </select>
+                    </div>
+                </div>
+
+                <div class="inputContainer d-flex gap-10px align-items-center ">
+                    <div class="inputWrapper w-100 d-flex  gap-1">
+                        <label for="exam-date" class="fs-15 color-medium">Date Of Exam / परीक्षा तिथि<sup class="text-danger"><i
+                                    class="fa-solid fa-star-of-life" style="font-size: 8px; "></i></sup> :
+                        </label>
+                        <select name="exam-date" id="exam-date" required
+                            class="w-100 py-2  dropdownContainer rounded px-2 border-medium fs-15 cursor-pointer">
+                            <option value="" selected>Select Exam Date</option>
+                            <option value="26/07/2025">26/07/2025</option>
+                            <option value="27/07/2025">27/07/2025</option>
+
+
+                        </select>
+
+                    </div>
+                </div>
+
+                <div class="inputContainer d-flex gap-10px align-items-center ">
+                    <div class="inputWrapper w-100 d-flex  gap-1">
+                        <label for="exam-shift" class="fs-15 color-medium">Shift / बदलाव<sup class="text-danger"><i
+                                    class="fa-solid fa-star-of-life" style="font-size: 8px; "></i></sup> : </label>
+                        <select name="exam-shift" id="exam-shift" required
+                            class="w-100 py-2  dropdownContainer rounded px-2 border-medium fs-15 cursor-pointer">
+                            <option value="" selected>Select Shift</option>
+                            <option value="MORNING SHIFT (10:00 AM - 11:45 AM)">MORNING SHIFT (10:00 AM - 11:45 AM)
+                            </option>
+                            <option value="EVENING SHIFT (3:15 PM - 5:00 PM)">EVENING SHIFT (3:15 PM - 5:00 PM)</option>
+                        </select>
+
+                    </div>
+                </div>
+
+                <div class="inputContainer d-flex gap-10px align-items-center ">
+                    <div class="inputWrapper w-100 d-flex  gap-1">
+                        <label for="travel-date" class="fs-15 color-medium">Date Of Travel / यात्रा की तिथि<sup class="text-danger"><i
+                                    class="fa-solid fa-star-of-life" style="font-size: 8px; "></i></sup> :
+                        </label>
+
+                        <select name="travel-date" id="travel-date" required
+                            class="w-100 py-2  dropdownContainer rounded px-2 border-medium fs-15 cursor-pointer">
+                            <option value="" selected>Select Travel Date</option>
+                            <option value="25/07/2025">25/07/2025</option>
+                            <option value="26/07/2025">26/07/2025</option>
+                            <option value="27/07/2025">27/07/2025</option>
+                            <option value="28/07/2025">28/07/2025</option>
+
+                        </select>
+
+                    </div>
+                </div>
+
+
+
+                <!-- this is paid fare choice -->
+                <div class="inputContainer d-flex gap-10px align-items-center paid-fare">
+                    <div class="inputWrapper w-100 d-flex  gap-1">
+                        <label for="transport-mode" class="fs-15 color-medium">Mode of Transport / परिवहन का तरीका<sup
+                                class="text-danger"><i class="fa-solid fa-star-of-life"
+                                    style="font-size: 8px; "></i></sup> : </label>
+                        <select name="transport-mode" id="transport-mode" required
+                            class="w-100 py-2  dropdownContainer rounded px-2 border-medium fs-15 cursor-pointer">
+                            <option value="" selected>Select Transport</option>
+                            <option value="bike">Bike</option>
+                            <option value="car">Car</option>
+                            <option value="bus">Taxi</option>
+                            <option value="train">Train</option>
+                            <option value="others">Others</option>
+                        </select>
+
+                    </div>
+                </div>
+
+                <div class="inputContainer d-flex gap-10px align-items-center paid-fare vehicleTransport">
+                    <div class="inputWrapper grow-1 d-flex  gap-1">
+                        <label for="vehicle-registration" class="fs-15 color-medium"> Vehicle Reg. No / वाहन रजि. नं<sup
+                                class="text-danger"><i class="fa-solid fa-star-of-life"
+                                    style="font-size: 8px; "></i></sup>: </label>
+                        <input class="w-100  py-2 rounded px-2 border-medium fs-15" minlength="4" maxlength="10"
+                            type="text" required name="vehicle-registration" id="vehicle-registration"
+                            placeholder="Enter Registration No">
+                    </div>
+                </div>
+                <div class="inputContainer d-flex gap-10px align-items-center paid-fare trainTransport d-none">
+                    <div class="inputWrapper grow-1 d-flex  gap-1">
+                        <label for="train-number" class="fs-15 color-medium"> Train No / ट्रेन नं<sup class="text-danger"><i
+                                    class="fa-solid fa-star-of-life" style="font-size: 8px; "></i></sup>: </label>
+                        <input class="w-100  py-2 rounded px-2 border-medium fs-15" minlength="4" disabled
+                            maxlength="10" type="text" required name="train-number" id="train-number"
+                            placeholder="Enter Train No">
+                    </div>
+                </div>
+
+                <!-- <div class="inputContainer d-flex gap-10px align-items-center paid-fare">
+                    <div class="inputWrapper grow-1 d-flex  gap-1">
+                        <label for="vehicle-type" class="fs-15 color-medium"> Vehicle Type : </label>
+                        <input class="w-100  py-2 rounded px-2 border-medium fs-15" type="text" required name="vehicle-type"
+                            id="vehicle-type" placeholder="Enter Details">
+                    </div>
+                </div> -->
+
+                <div class="inputContainer d-flex gap-10px align-items-center paid-fare">
+                    <div class="inputWrapper grow-1 d-flex  gap-1">
+                        <label for="fare-choice" class="fs-15 color-medium">Driver Details / ड्राइवर विवरण : </label>
+                        <div class="w-100 d-flex gap-10px radioSelect">
+                            <label for="self-drive"
+                                class="w-100 d-flex gap-2 align-items-center cursor-pointer justify-content-center rounded py-2 px-3 bg-light-gray">
+                                <input class="border-medium fs-15 d-none" type="radio" name="drive-option"
+                                    id="self-drive" checked>
+                                <i class="fa-solid fa-circle-check"></i>
+
+                                <span class="fs-15 ">Self Drive</span>
+                            </label>
+                            <label for="paid-driver"
+                                class="w-100 d-flex gap-2 align-items-center cursor-pointer justify-content-center rounded py-2 px-3 bg-light-gray">
+                                <input class="border-medium fs-15 d-none" type="radio" name="drive-option"
+                                    id="paid-driver">
+                                <i class="fa-solid fa-circle-check"></i>
+
+                                <span class="fs-15 ">Driver</span>
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- driver details  -->
+                <div class="inputContainer d-flex gap-10px align-items-center paid-fare driver-details ">
+                    <div class="inputWrapper grow-1 d-flex  gap-1">
+                        <label for="driver-name" class="fs-15 color-medium"> Driver Name / ड्राइवर का नाम<sup class="text-danger"><i
+                                    class="fa-solid fa-star-of-life" style="font-size: 8px; "></i></sup> :
+                        </label>
+                        <input class="w-100  py-2 rounded px-2 border-medium fs-15" minlength="3" maxlength="50"
+                            type="text" required name="driver-name" id="driver-name" placeholder="Enter Driver Name">
+                    </div>
+
+                </div>
+                <div class="inputContainer d-flex gap-10px align-items-center paid-fare driver-details ">
+
+                    <div class="inputWrapper grow-1 d-flex  gap-1 ">
+                        <label for="driver-age" class="fs-15 color-medium"> Driver Age / ड्राइवर की उम्र<sup class="text-danger"><i
+                                    class="fa-solid fa-star-of-life" style="font-size: 8px; "></i></sup> :
+                        </label>
+                        <input class="w-100  py-2 rounded px-2 border-medium fs-15" min="18" max="99" type="number"
+                            required name="driver-age" id="driver-age" placeholder="Enter Driver Age">
+                    </div>
+                </div>
+
+                <div class="inputContainer d-flex gap-10px align-items-center paid-fare driver-details ">
+                    <div class="inputWrapper grow-1 d-flex gap-1">
+                        <label for="driver-mobile" class="fs-15 color-medium"> Driver Mobile / ड्राइवर मोबाइल<sup class="text-danger"><i
+                                    class="fa-solid fa-star-of-life" style="font-size: 8px; "></i></sup>
+                            : </label>
+                        <input class="w-100  py-2 rounded px-2 border-medium fs-15" min="1000000000" max="9999999999"
+                            required type="number" name="driver-mobile" id="driver-mobile"
+                            placeholder="Enter Driver Mobile">
+                    </div>
+                </div>
+
+                <div class="inputContainer d-flex gap-10px align-items-center paid-fare cotravellerContainer ">
+                    <label for="guardian-name" class="fs-15 color-medium label"> Co-traveller Details / सह-यात्री विवरण : </label>
+                    <div class="cotravellerWrapper position-relative w-100 d-flex flex-column gap-15px">
+                        <div class="cotravellerForm w-100 d-flex gap-10px align-items-center">
+                            <div class=" flex-column w-100 d-flex gap-1">
+                                <label for="cotraveller-name-1" class="fs-15 color-medium"> Name / नाम<sup
+                                        class="text-danger"><i class="fa-solid fa-star-of-life"
+                                            style="font-size: 8px; "></i></sup> :
+                                </label>
+                                <input class="w-100  py-2 rounded px-2 border-medium fs-15" minlength="3" maxlength="50"
+                                    type="text" required name="cotraveller-name-1" id="cotraveller-name-1"
+                                    placeholder="Enter  Name">
+                            </div>
+                            <div class=" flex-column w-100 d-flex gap-1">
+                                <label for="cotraveller-gender-1" class="fs-15 color-medium"> Gender / लिंग<sup
+                                        class="text-danger"><i class="fa-solid fa-star-of-life"
+                                            style="font-size: 8px; "></i></sup> : </label>
+                                <select name="cotraveller-gender-1" id="cotraveller-gender-1" required
+                                    class="w-100 py-2  dropdownContainer rounded px-2 border-medium fs-15 cursor-pointer">
+                                    <option value="" selected>Gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="transgender">Transgender</option>
+
+                                </select>
+                            </div>
+                            <div class="flex-column w-100 d-flex gap-1">
+                                <label for="cotraveller-mobile-1" class="fs-15 color-medium"> Mobile / मोबाइल<sup
+                                        class="text-danger"><i class="fa-solid fa-star-of-life"
+                                            style="font-size: 8px; "></i></sup> : </label>
+                                <input class="w-100  py-2 rounded px-2 border-medium fs-15" min="1000000000"
+                                    max="9999999999" type="number" required name="cotraveller-mobile-1"
+                                    id="cotraveller-mobile-1" placeholder="Enter Mobile">
+                            </div>
+
+                            <!-- <div class="delete-cotraveller-btn w-max shrink-0" style="margin-top: 26px;">
+                                    <span class="fs-19 text-danger cursor-pointer"><i class="fa-solid fa-trash-can"></i></span>
+                                </div> -->
+                        </div>
+
+                        <div class="w-100 position-absolute"
+                            style="bottom: 0; transform: translateY(calc(100% + 5px)); left: 0;">
+                            <p id="addMoreCotravellerBtn" class="color-theme w-max fs-15 cursor-pointer">+ Add More
+                                Co-traveller Details</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="inputContainer d-flex gap-10px align-items-center  guardianContainer d-none">
+                    <label for="guardian-name" class="fs-15 color-medium label"> Guardian Details / संरक्षक विवरण : </label>
+                    <div class="guardianWrapper position-relative w-100 d-flex flex-column gap-15px">
+
+                        <div class="guardianForm w-100 d-flex gap-10px align-items-center">
+                            <div class=" flex-column w-100 d-flex gap-1">
+                                <label for="guardian-name-1" class="fs-15 color-medium"> Name / नाम <sup class="text-danger"><i
+                                            class="fa-solid fa-star-of-life" style="font-size: 8px; "></i></sup> :
+                                </label>
+                                <input class="w-100  py-2 rounded px-2 border-medium fs-15" disabled minlength="3"
+                                    maxlength="50" type="text" required name="guardian-name-1" id="guardian-name-1"
+                                    placeholder="Enter  Name">
+                            </div>
+                            <div class=" flex-column w-100 d-flex gap-1">
+                                <label for="guardian-gender-1" class="fs-15 color-medium"> Gender / लिंग<sup
+                                        class="text-danger"><i class="fa-solid fa-star-of-life"
+                                            style="font-size: 8px; "></i></sup> : </label>
+                                <select name="guardian-gender-1" id="guardian-gender-1" disabled required
+                                    class="w-100 py-2  dropdownContainer rounded px-2 border-medium fs-15 cursor-pointer">
+                                    <option value="" selected>Gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="transgender">Transgender</option>
+
+                                </select>
+                            </div>
+                            <div class="flex-column w-100 d-flex gap-1">
+                                <label for="guardian-mobile-1" class="fs-15 color-medium"> Mobile / मोबाइल<sup
+                                        class="text-danger"><i class="fa-solid fa-star-of-life"
+                                            style="font-size: 8px; "></i></sup> : </label>
+                                <input class="w-100  py-2 rounded px-2 border-medium fs-15" min="1000000000"
+                                    max="9999999999" type="number" disabled required name="guardian-mobile-1"
+                                    id="guardian-mobile-1" placeholder="Enter Mobile">
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <section
+                    class=" d-flex mt-3 gap-10px align-items-center w-100 justify-content-center  bottom-0 py-3 px-2">
+                    <div class="buttonContainer d-flex gap-10px align-items-center">
+                        <button id="resetBtn"
+                            class="bg-gray-light border-medium rounded outline-none fs-14 fw-500 py-2 px-3 grow-1">Reset
+                            Form</button>
+                        <button type="submit"
+                            class="bg-theme rounded border-none border-transparent outline-none color-white py-2 fs-14 fw-500 px-3 grow-1">Submit
+                            Form</button>
+                    </div>
+                </section>
+            </form>
+        </section>
+
+
+        <div id="successPopup"
+            class="position-fixed vh-100 w-100 d-flex align-items-center justify-content-center border-danger border d-none"
+            style="background-color:  rgb(255, 255, 255); z-index: 1000; top: 0; left: 0;">
+            <div class=" position-relative py-3 px-2 rounded flex-column d-flex align-items-center justify-content-evenly transformAnimation gap-3"
+                style="background-color: #f5f3ed;  width: 50%;">
+                <div
+                    class="position-relative py-3 px-2 rounded d-flex flex-column align-items-center justify-content-center gap-3">
+                    <div style="width: 60px;">
+                        <svg width="100%" height="100%" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="50" cy="50" r="40" fill="#22c55e" opacity="0.15" transform-origin="50 50">
+                                <animateTransform attributeName="transform" type="scale" values="0;1.1;1" dur="1.2s"
+                                    repeatCount="1" />
+                                <animate attributeName="opacity" values="0;0.2;0.15" dur="1.2s" repeatCount="1" />
+                            </circle>
+                            <circle cx="50" cy="50" r="35" fill="#22c55e" transform-origin="50 50">
+                                <animateTransform attributeName="transform" type="scale" values="0;1.05;1" dur="1.5s"
+                                    begin="0.5s" repeatCount="1" />
+                            </circle>
+                            <path d="M35 50 L44 59 L65 41" stroke="white" stroke-width="4" stroke-linecap="round"
+                                stroke-linejoin="round" fill="none" />
+                        </svg>
+                    </div>
+                    <p class="mb-0 fs-16 w-100">
+                        Dear Candidate, </br>
+
+                        Your travel booking request has been successfully received.</br>
+
+                        Please ensure that you arrive on time at the designated departure location on the day of
+                        travel.</br>
+                        Haryana Roadways wishes you a safe and pleasant journey.</br>
+
+                        Best wishes for your CET 2025 examination!</br>
+
+                        <b>– Transport Department, Government of Haryana</b>
+                    </p>
+
+                    <p class="mb-0 fs-16 mt-2 w-100">
+                        प्रिय अभ्यर्थी, </br>
+
+                        आपका यात्रा बुकिंग अनुरोध सफलतापूर्वक प्राप्त हो गया है।</br>
+
+                        कृपया यात्रा की तिथि पर निर्धारित प्रस्थान स्थल (चढ़ने का स्थान) पर समय से पहुँचे।</br>
+                        हरियाणा रोडवेज की ओर से आपको सुरक्षित और सुखद यात्रा की शुभकामनाएँ।</br>
+                        CET 2025 परीक्षा के लिए आपको ढेरों शुभकामनाएँ!</br>
+
+                        <b>– परिवहन विभाग, हरियाणा सरकार</b>
+                    </p>
+                </div>
+
+                <button id="resubmitBtn"
+                    class="bg-theme rounded h-max border-none border-transparent outline-none color-white py-2 fs-14 fw-500 px-3">Submit
+                    Another
+                    Form</button>
+
+            </div>
+
+
+        </div>
+
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>
+<script>
+    const FIREBASE_API_KEY = "AIzaSyBHhReo_Sg9a7Yl5YbKUkDTwyGiwYB_wH8"; // from firebaseConfig
+    const PROJECT_ID = "insight-data-education"; // from firebaseConfig
+  
+    async function handleSubmit(event) {
+      event.preventDefault();
+  
+      const form = event.target;
+      const formData = new FormData(form);
+      const data = {};
+      formData.forEach((value, key) => data[key] = value);
+  
+      const firestorePayload = {
+        fields: Object.fromEntries(
+          Object.entries(data).map(([key, value]) => [key, { stringValue: value }])
+        )
+      };
+  
+      const response = await fetch(`https://firestore.googleapis.com/v1/projects/${PROJECT_ID}/databases/(default)/documents/formData?key=${FIREBASE_API_KEY}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(firestorePayload)
+      });
+  
+      if (response.ok) {
+        alert("Form submitted successfully!");
+        console.log(await response.json());
+        form.reset();
+      } else {
+        alert("Error submitting form");
+        console.error(await response.text());
+      }
+    }
+  </script>
+  

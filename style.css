@@ -1,0 +1,450 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --primary-color: #ea3776;
+    --text-medium: #ffffff;
+    /* --text-medium: #444444; */
+    --text-light: #777777;
+    --text-dark: #000000;
+    --text-white: #ffffff;
+    --border-medium: #c0c0c0;
+    --border-light: #f0f0f0;
+    --background-light: #f5f3ed;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+
+*::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+    display: none;
+}
+
+input,
+select,
+textarea {
+    accent-color: var(--primary-color);
+    outline: none;
+}
+
+.outline-none {
+    outline: none;
+}
+
+.border-none {
+    border: none;
+}
+
+.w-max {
+    width: max-content;
+}
+.h-max{
+    height: max-content;
+}
+
+/* background  */
+.bg-theme {
+    background-color: var(--primary-color);
+}
+
+.bg-light-gray {
+    background-color: var(--background-light);
+}
+
+/* border   */
+
+.border-medium {
+    border: 2px solid var(--border-medium);
+}
+
+.border-light {
+    border: 2px solid var(--border-light);
+}
+
+.border-transparent {
+    border: 2px solid transparent;
+}
+
+/* text  */
+.color-white {
+    color: var(--text-white)
+}
+
+.color-medium {
+    color: var(--text-medium)
+}
+
+.color-light {
+    color: var(--text-light)
+}
+
+.color-theme {
+    color: var(--primary-color);
+}
+
+.grow-1 {
+    flex-grow: 1;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.shrink-0 {
+    flex-shrink: 0;
+}
+
+.align-items-stretch {
+    align-items: stretch;
+}
+
+.gap-10px {
+    gap: 10px;
+}
+
+.gap-15px {
+    gap: 15px;
+}
+.gap-25px {
+    gap: 25px;
+}
+
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.py-25 {
+    padding: 0.594rem 0 !important;
+}
+
+.fw-500 {
+    font-weight: 500;
+}
+
+.fw-600 {
+    font-weight: 600;
+}
+
+.fw-700 {
+    font-weight: 700;
+}
+
+.fs-11 {
+    font-size: 11px;
+}
+
+.fs-12 {
+    font-size: 12px;
+}
+
+.fs-13 {
+    font-size: 13px;
+}
+
+.fs-14 {
+    font-size: 14px;
+}
+
+.fs-15 {
+    font-size: 15px;
+}
+
+.fs-16 {
+    font-size: 16px;
+}
+
+.fs-17 {
+    font-size: 17px;
+}
+
+.fs-18 {
+    font-size: 18px;
+}
+
+.fs-19 {
+    font-size: 19px;
+}
+
+.fs-20 {
+    font-size: 20px;
+}
+
+.fs-21 {
+    font-size: 21px;
+}
+
+.fs-22 {
+    font-size: 22px;
+}
+
+.fs-23 {
+    font-size: 23px;
+}
+
+.fs-24 {
+    font-size: 24px;
+}
+
+
+
+.inputContainer {
+    width: calc(100% /1);
+}
+
+form {
+    width: 720px;
+}
+
+.inputWrapper {
+    flex-direction: row;
+    align-items: center;
+}
+
+.inputContainer .label {
+    width: 39%;
+    font-size: 17px;
+}
+
+.inputWrapper label {
+    width: 39%;
+    text-align: left;
+    padding-right: 10px;
+    font-size: 17px;
+
+}
+
+button:hover{
+    filter: brightness(0.9);
+}
+.radioSelect > label:hover{
+    filter: brightness(0.8);
+
+}
+
+
+.buttonContainer {
+    width: 310px;
+}
+
+main {
+    padding: 20px 40px;
+}
+
+.inputContainer input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.inputContainer input:radio {
+    outline: none;
+    border-color: (--primary-color);
+}
+
+.inputContainer select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.inputContainer select:active {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.inputContainer label:has(input[type="radio"]:checked) {
+    background-color: var(--primary-color);
+    color: white !important;
+
+}
+
+.inputContainer label .fa-circle-check{
+    display: none;
+}
+.inputContainer label:has(input[type="radio"]:checked)  .fa-circle-check{
+    display: block;
+}
+
+.transformAnimation {
+    transition: transform 0.3s ease-in-out;
+    animation: easeTransform 0.3s ease 1 forwards;
+}
+
+@keyframes easeTransform {
+    from {
+        transform: scale(0.5);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+.dropdownContainer {
+    background: url('data:image/svg+xml;utf8,<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 10L12 15L17 10" stroke="%23000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-position: calc(100% - 7px) center;
+    background-repeat: no-repeat;
+    background-size: 18px;
+    background-color: white;
+}
+
+
+@media screen and (max-width: 950px) {
+
+    header .text-container {
+        width: calc(100% - 232px) !important;
+    }
+
+    header .imgContainer {
+        width: 92px !important;
+    }
+
+    header .heading {
+        font-size: 23px !important;
+    }
+
+    header .subheading {
+        font-size: 17px;
+    }
+
+    .inputContainer {
+        width: calc(100% / 2 - 5px);
+    }
+
+    .inputWrapper label {
+        width: max-content;
+        padding-right: 0;
+    }
+
+    .inputContainer .label {
+        width: 100% !important;
+        text-align: left;
+    }
+
+    .cotravellerContainer {
+        flex-direction: column !important;
+        align-items: start !important;
+    }
+
+    main {
+        gap: 5px !important;
+
+        padding: 20px 30px;
+
+    }
+
+    .inputWrapper {
+        flex-direction: column;
+        align-items: start;
+    }
+
+    form {
+        row-gap: 10px !important;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 770px) {
+    header .text-container {
+        width: calc(100% - 175px) !important;
+    }
+
+    header .imgContainer {
+        width: 80px !important;
+        left: 17px !important;
+
+    }
+
+    header .heading {
+        font-size: 20px !important;
+    }
+
+    header .subheading {
+        font-size: 15px;
+    }
+
+
+
+}
+
+@media screen and (max-width: 634px) {
+    header .text-container {
+        width: calc(100% - 139px) !important;
+    }
+
+    header .imgContainer {
+        width: 66px !important;
+        left: 15px !important;
+    }
+
+    header .heading {
+        font-size: 17px !important;
+    }
+
+    header .subheading {
+        font-size: 14px;
+    }
+
+    main {
+        gap: 5px !important;
+
+        padding: 20px 20px;
+
+    }
+
+    .inputContainer {
+        width: calc(100% / 1);
+    }
+
+    .buttonContainer {
+        width: 400px;
+        margin: auto;
+    }
+
+    #successPopup .transformAnimation {
+        width: 82% !important;
+
+    }
+
+
+}
+
+
+@media screen and (max-width: 465px) {
+    header .text-container {
+        width: calc(100% - 73px) !important;
+    }
+
+    header .imgContainer {
+        width: 56px !important;
+
+        left: 9px !important;
+    }
+
+    header .heading {
+        font-size: 16px !important;
+    }
+
+    header .subheading {
+        font-size: 12px;
+    }
+
+
+}
